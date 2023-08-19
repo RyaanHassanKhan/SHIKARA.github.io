@@ -8,6 +8,7 @@ Our aim is to make the tourists stay in the kashmir as smooth as possiple.
 ## Authors
 
 - [@afanmir19](https://www.github.com/afanmir19)
+- - [@RyaanHassanKhan](https://www.github.com/RyaanHassanKhan)
 
 
 ## Features
