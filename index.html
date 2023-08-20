@@ -6,46 +6,54 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <style>
-      .mobile-menu {
-  display: none; /* Hide the menu by default on larger screens */
-}
-
-.menu-items {
-  list-style: none;
-  padding: 0;
-}
-
-.menu-items li {
-  margin: 10px 0;
-}
-
-/* Styling for the hamburger icon */
-.hamburger {
-  display: block;
-  cursor: pointer;
-}
-
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 4px 0;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-  .mobile-menu {
-    display: block; /* Show the menu on smaller screens */
-  }
-
-  .menu-items {
-    display: none; /* Hide the list items initially on smaller screens */
-  }
-
-  .menu-items.active {
-    display: block; /* Show the list items when the menu is active */
-  }
-}
+      /* Styling for desktop menu */
+      .desktop-menu {
+        display: block; /* Show the menu by default on larger screens */
+      }
+      
+      .desktop-menu ul {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .desktop-menu ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+      
+      /* Styling for hamburger icon */
+      .mobile-menu .hamburger {
+        display: block;
+        cursor: pointer;
+      }
+      
+      .mobile-menu .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        margin: 4px 0;
+      }
+      
+      /* Hide mobile menu initially */
+      .mobile-menu .menu-items {
+        display: none;
+      }
+      
+      /* Media query for mobile devices */
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none; /* Hide desktop menu on smaller screens */
+        }
+      
+        .mobile-menu {
+          display: block; /* Show mobile menu on smaller screens */
+        }
+      
+        /* Show the menu items when the menu is active */
+        .mobile-menu .menu-items.active {
+          display: block;
+        }
+      }
     </style>
     
   </head>
@@ -54,13 +62,20 @@
       <video autoplay loop muted plays-inline class="back-video">
         <source src="img/video (1080p) (1).mp4" type="video/mp4" />
       </video>
-      <nav>
+
+      <nav class="desktop-menu">
         <img
           src="img/logonewwhite-removebg-preview (1).png"
-          class="logo"
-        />
+          class="logo"/>
         <ul>
-          <div class="mobile-menu">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">PRODUCTS</a></li>
+          <li><a href="#">TEAM</a></li>
+          <li><a href="#">ABOUT</a></li>
+        </ul>
+      </nav>
+        
+       <div class="mobile-menu">
           <div class="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -71,7 +86,8 @@
             <li><a href="#">PRODUCTS</a></li>
             <li><a href="#">TEAM</a></li>
             <li><a href="#">ABOUT</a></li>
-        </ul>
+          </ul>
+      </div>
 </div>
 
         </ul>
@@ -83,8 +99,8 @@
     </div>
 
     <script>
-      document.querySelector('.hamburger').addEventListener('click', function() {
-        document.querySelector('.menu-items').classList.toggle('active');
+      document.querySelector('.mobile-menu .hamburger').addEventListener('click', function() {
+        document.querySelector('.mobile-menu .menu-items').classList.toggle('active');
       });
       </script>
   </body>
