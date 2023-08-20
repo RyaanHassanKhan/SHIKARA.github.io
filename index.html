@@ -5,6 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+      .mobile-menu {
+  display: none; /* Hide the menu by default on larger screens */
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-items li {
+  margin: 10px 0;
+}
+
+/* Styling for the hamburger icon */
+.hamburger {
+  display: block;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: block; /* Show the menu on smaller screens */
+  }
+
+  .menu-items {
+    display: none; /* Hide the list items initially on smaller screens */
+  }
+
+  .menu-items.active {
+    display: block; /* Show the list items when the menu is active */
+  }
+}
+    </style>
+    
   </head>
   <body>
     <div class="hero">
@@ -17,11 +60,20 @@
           class="logo"
         />
         <ul>
-          <li><a href="#">HOME</a></li>
-          
-          <li><a href="#">PRODUCTS</a></li>
-          <li><a href="#">TEAM</a></li>
-          <li><a href="#">ABOUT</a></li>
+          <div class="mobile-menu">
+          <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <ul class="menu-items">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PRODUCTS</a></li>
+            <li><a href="#">TEAM</a></li>
+            <li><a href="#">ABOUT</a></li>
+        </ul>
+</div>
+
         </ul>
       </nav>
       <div class="content">
@@ -29,5 +81,11 @@
         <a href="#">EXPLORE</a>
       </div>
     </div>
+
+    <script>
+      document.querySelector('.hamburger').addEventListener('click', function() {
+        document.querySelector('.menu-items').classList.toggle('active');
+      });
+      </script>
   </body>
 </html>
